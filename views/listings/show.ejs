@@ -23,7 +23,7 @@
  <div class="btns">
          <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
 
-        <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+        <form method="post" novalidate class="needs-validation" action="/listings/<%= listing._id %>?_method=DELETE">
         <button class="btn btn-dark  offset-5">Delete</button>
     </form>
     </div>
@@ -38,7 +38,10 @@
         </div>
         <div class="mb-3 mt-3">
           <label for="comment" class="form-label">Comment</label>
-          <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control"></textarea>
+          <textarea required name="review[comment]" id="comment" cols="30" rows="5" class="form-control"></textarea>
+          <div class="invalid-feedback">
+            Please add Comment for Review
+          </div>
         </div>
         <button class="btn btn-outline-dark">Submit</button>
       </form>
