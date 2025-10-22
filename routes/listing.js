@@ -4,17 +4,9 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const {listingSchema, reviewSchema} = require("../schema.js");
 const Listing = require("../models/listing.js");
-const { isLoggedIn } = require("../middleware.js");
+const { isLoggedIn, isOwner } = require("../middleware.js");
+const { validateReview } = require("../middleware.js");
 
-const validateListing = (req, res, next) => {
-    let {error} = listingSchema.validate(req.body);
-    if(error) {
-        let errMsg = error.details.map((el) => el.message).join(",");
-        throw new ExpressError(400, errMsg);
-    } else {
-        next();
-    }
-}
 
 //Index Route
 router.get("/",wrapAsync(async (req, res) => {
@@ -46,7 +38,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
 router.post(
     "/",
     isLoggedIn, 
-    validateListing,
+    
     wrapAsync(async(req, res, next) => {
     
     const newListing = new Listing(req.body.listing);
@@ -58,7 +50,10 @@ router.post(
 );
 
 //edit route
-router.get("/:id/edit", isLoggedIn, wrapAsync(async (req, res) => {
+router.get("/:id/edit",
+     isLoggedIn,
+     isOwner, 
+     wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Listing.findById(id);
     if(!listing) {
@@ -71,8 +66,8 @@ router.get("/:id/edit", isLoggedIn, wrapAsync(async (req, res) => {
 //update Route
 router.put("/:id", 
     isLoggedIn,
-    validateListing, 
-     wrapAsync(async (req, res) => {
+    isOwner,
+    wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
     req.flash("success", "Listing Updated!");
@@ -80,7 +75,10 @@ router.put("/:id",
 }));
 
 //delete route
-router.delete("/:id", isLoggedIn, wrapAsync(async (req, res) => {
+router.delete("/:id",
+     isLoggedIn,
+     isOwner, 
+     wrapAsync(async (req, res) => {
   let { id } = req.params;
   let deletedListing = await Listing.findByIdAndDelete(id);
   console.log(deletedListing);
