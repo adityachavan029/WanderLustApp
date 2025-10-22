@@ -8,10 +8,10 @@
     </div>
     <div class="card col-6 offset-3 show-card listing-card">
 
-  <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
+  <img src="<%= listing.image?.url || 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=60' %>" class="card-img-top show-img" alt="listing_image">
   <div class="card-body">
     <p class="card-text">
-      <i>Owned By: <%= listing.owner.username %></i> </p>
+      <i>Owned By: <%= listing.owner ? listing.owner.username : 'Unknown' %></i> </p>
       <br>
        <p> <%= listing.description %></p> 
         <p> &#8377; <%= listing.price.toLocaleString("en-IN"); %> </p>
@@ -22,7 +22,7 @@
 </div>
 <br>
 
-
+<% if(currUser && listing.owner && listing.owner._id && listing.owner._id.equals(currUser._id)) { %>
 
  <div class="btns">
          <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
@@ -32,8 +32,13 @@
     </form>
     </div>
 
+    <% } %>
+
+   
+
     <div class="card col-6 offset-3 mb-3 mt-3">
-      <hr>
+      <hr> 
+      <% if(currUser) { %>
       <h4>Leave a Review</h4>
       <form action="/listings/<%= listing._id %>/reviews" method="POST">
 
@@ -51,6 +56,8 @@
         <button class="btn btn-outline-dark">Submit</button>
       </form>
       <hr>
+      <% } %>
+    
       <br>
       <p><b>All reviews</b></p>
 
@@ -58,7 +65,7 @@
  <% for(review of listing.reviews) { %>
         <div class="card col-5 mb-3 ms-3">
           <div class="card-body">
-            <h5 class="card-title"></h5>
+            <h5 class="card-title">@<%= review.author ? review.author.username : 'Anonymous' %></h5>
             <p class="card-text"><%= review.comment %></p>
             <p class="card-text"><%= review.rating%> stars</p>
           </div>
