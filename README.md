@@ -40,6 +40,18 @@ Built with the **MERN Stack (MongoDB, Express, React, Node.js)**, it provides a 
 | **Mapping API** | Mapbox |
 | **Deployment** | Render / Vercel / Netlify |
 
+## 🧠 Tech Stack
+
+| Layer             | Technology & Features                                                                 |
+|------------------|----------------------------------------------------------------------------------------|
+| **Frontend**      | React.js, Bootstrap / Tailwind CSS                                                    |
+| **Backend**       | Node.js, Express.js, Multer (file upload middleware)                                  |
+| **Database**      | MongoDB with Mongoose (ODM for schema modeling and queries)                           |
+| **Image Storage** | Cloudinary (cloud-based image hosting), multer-storage-cloudinary (Cloudinary adapter for Multer) |
+| **Authentication**| JWT (token-based authentication), Passport.js (authentication middleware)             |
+| **Mapping API**   | Mapbox (interactive maps and geolocation features)                                    |
+| **Deployment**    | Render / Vercel / Netlify (for hosting frontend/backend services)                     |
+
 ---
 
 ## 🖥️ Live Demo
