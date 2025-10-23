@@ -28,17 +28,6 @@ Built with the **MERN Stack (MongoDB, Express, React, Node.js)**, it provides a 
 
 ---
 
-## 🧠 Tech Stack
-
-| Layer | Technology |
-|-------|-------------|
-| **Frontend** | React.js, Bootstrap / Tailwind CSS |
-| **Backend** | Node.js, Express.js |
-| **Database** | MongoDB (Mongoose) |
-| **Image Storage** | Cloudinary |
-| **Authentication** | JWT / Passport.js |
-| **Mapping API** | Mapbox |
-| **Deployment** | Render / Vercel / Netlify |
 
 ## 🧠 Tech Stack
 
