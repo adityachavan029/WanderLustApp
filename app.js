@@ -60,6 +60,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Middleware to set locals - MUST be before routes
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
+    next();
+});
+
 const validateListing = (req, res, next) => {
     let {error} = listingSchema.validate(req.body);
     if(error) {
@@ -79,13 +87,6 @@ const validateReview = (req, res, next) => {
         next();
     }
 }
-
-app.use((req, res, next) => {
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
-    next();
-});
 
 // app.get("/demouser", async (req, res) => {
 //     let fakeUser = new User({
