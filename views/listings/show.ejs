@@ -1,4 +1,10 @@
 <% layout("/layouts/boilerplate") %>
+
+<script>
+  const  mapToken = "<%= process.env.MAP_TOKEN %>";
+  const coordinates = <%- JSON.stringify( listing.geometry.coordinates) %>;
+</script>
+
     <div class="row mt-3">
         <div class="col-8 offset-3">
 
@@ -37,8 +43,9 @@
    
 
     <div class="card col-6 offset-3 mb-3 mt-3">
-      <hr> 
+     
       <% if(currUser) { %>
+        <hr> 
       <h4>Leave a Review</h4>
       <form action="/listings/<%= listing._id %>/reviews" method="POST">
 
@@ -79,9 +86,10 @@
       <% } %>
     
       <br>
-      <p><b>All reviews</b></p>
-
+      
+<% if(listing.reviews.length > 0) { %>
 <div class="row">
+  <p><b>All reviews</b></p>
  <% for(review of listing.reviews) { %>
         <div class="card col-5 mb-3 ms-3">
           <div class="card-body">
@@ -99,4 +107,31 @@
         </div>
         <% } %>
 </div>
-    </div>
+<% } %>
+</div>
+   <div class="col-6 offset-3 mb-3">
+  <h3>Where you'll be</h3>
+  <div id="map"></div>
+
+
+<!-- 
+  static map 
+  <div class="col-6 offset-3 mb-3">
+    <h3>Where you'll be</h3>
+  
+    <div id="map" class="map-container text-center">
+      <img 
+        src="https://static-maps.yandex.ru/1.x/?ll=75.9064,17.6599&size=600,300&z=12&l=map"
+        alt="Map of Solapur"
+        
+      />
+     
+    </div> 
+  </div>-->
+  
+
+</div>
+</div>
+
+
+<script src="/public/js/map.js" ></script>
