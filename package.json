@@ -2,7 +2,7 @@
   "name": "wanderlust",
   "version": "1.0.0",
   "description": "Full-stack MERN project like Airbnb — WanderLust",
-  "main": "index.js",
+  "main": "app.js",
   "type": "commonjs",
   "engines": {
     "node": "20.18.0"
@@ -32,7 +32,6 @@
     "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^8.0.0",
-    "router": "^1.3.8"
+    "passport-local-mongoose": "^8.0.0"
   }
 }
