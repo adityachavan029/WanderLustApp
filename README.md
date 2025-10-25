@@ -45,9 +45,12 @@ Built with the **MERN Stack (MongoDB, Express, React, Node.js)**, it provides a 
 ## Live Demo
 
 **Live Site:** [(https://wanderlustapp-xpbv.onrender.com)](#)  
-*(Add screenshots or GIF previews here)*
+
 
 ---
+<img width="1901" height="906" alt="Screenshot 2025-10-25 113344" src="https://github.com/user-attachments/assets/7f6d3f44-2d62-41e2-a33e-0e26aaa62715" />
+
+<img width="1920" height="1315" alt="screencapture-localhost-8080-listings-68fa1a07d4f049f30d4e2a02-2025-10-25-11_34_41" src="https://github.com/user-attachments/assets/58b3894d-f4ea-4eae-bde1-f801f44c476b" />
 
 ## Installation & Setup
 
@@ -57,3 +60,4 @@ Follow these steps to run the project locally:
 ```bash
 git clone https://github.com/adityachavan029/WanderLust.git
 cd WanderLust
+
