@@ -40,11 +40,11 @@ module.exports.createListing = async(req, res, next) => {
 
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
-    // Default geometry since geocoding is disabled
-    newListing.geometry = {
-        type: 'Point',
-        coordinates: [0, 0] // Default coordinates (longitude, latitude)
-    };
+    // Geometry field commented out (mapbox/geocoding disabled)
+    // newListing.geometry = {
+    //     type: 'Point',
+    //     coordinates: [0, 0] // Default coordinates (longitude, latitude)
+    // };
     let url = req.file.path;
     let filename = req.file.filename;
     newListing.image = { url, filename };

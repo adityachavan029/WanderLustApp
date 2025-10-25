@@ -25,6 +25,8 @@ const listingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  // Geometry field commented out (mapbox/geocoding disabled)
+  /*
   geometry: {
     type: {
       type: String,
@@ -36,6 +38,7 @@ const listingSchema = new Schema({
       required: true,
     },
   }
+  */
   
 });
 

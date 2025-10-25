@@ -1,4 +1,6 @@
 
+// Mapbox code commented out
+/*
 mapboxgl.accessToken = mapToken;
 
 const map = new mapboxgl.Map({
@@ -13,3 +15,4 @@ const marker = new mapboxgl.Marker({ color: 'red' })
 .setLngLat(coordinates);
 .setPopup(new mapboxgl.Popup({offset: 25})).setHTML("<h5>Exact Location Provided after Booking!</h5>")
 .addTo(map);
+*/
