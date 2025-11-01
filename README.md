@@ -44,7 +44,7 @@ Built with the **MERN Stack (MongoDB, Express, React, Node.js)**, it provides a 
 
 ## Live Demo
 
-**Live Site:** [(https://wanderlustapp-xpbv.onrender.com)](#)  
+**Live Site:** [https://wanderlustapp-xpbv.onrender.com](#)  
 
 
 ---
@@ -60,4 +60,5 @@ Follow these steps to run the project locally:
 ```bash
 git clone https://github.com/adityachavan029/WanderLust.git
 cd WanderLust
+
 
